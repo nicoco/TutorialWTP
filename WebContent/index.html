@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<script type='text/javascript' src='common.js'> </script>
+
+<script type='text/javascript'>
+
+function sendXhr()
+{
+	var method   = "GET"; 
+	var filename = 'AccountServlet';
+	var data=null;
+
+	var xhr = getXMLHTTP();
+	xhr.open(method, filename, false);
+
+	xhr.onreadystatechange = function() {
+
+		if(xhr.readyState == 4) {
+			response = xhr.responseText;
+			var myDiv = document.getElementById("div1");
+			myDiv.innerHTML = response;
+/*
+			if(response.substr(0,3)=="LOG") {
+				//location="Login.html";
+				//afficheDescURL("div1", "Login.html", "100%", "1000");
+			} else {
+				//var MonParagraphe = document.getElementById("accounts")
+				//MonParagraphe.innerHTML = response;
+				//afficheDescURL("div1", "Login.html", "100%", "1000");
+			}
+*/
+		} 
+	}
+	xhr.send(data);
+
+}
+
+</script>
+
+<title>DPFK</title>
+</head>
+
+<body BGCOLOR="#FDF5E6" onload="sendXhr()">
+
+
+<H2 ALIGN="CENTER">Welcome to "DPFK" !!!</H2>
+
+<div id="div1">
+</div>
+
+</BODY>
+</html>
